@@ -58,15 +58,12 @@ Toujours sur le modèle WorkBench, créons une Procédure Stockée
 Procédure film_in_stock : qui permet de déterminer si des exemplaires d’un film
 donné sont disponibles dans un magasin donné.
 Paramètres :
-- L’ID du film à vérifier
-- L’ID du magasin pour lequel on souhaite vérifier
+- p_film_id : L’ID du film à vérifier
 
-p_film_count : Un paramètre OUT de sortie qui retourne le nombre d’exemplaires
+- p_store_id : L’ID du magasin pour lequel on souhaite vérifier
+
+- p_film_count : Un paramètre OUT de sortie qui retourne le nombre d’exemplaires 
 du film en stock dans le magasin
-
-• p_film_id :
-
-• p_store_id :
 
 Exemple :
 
