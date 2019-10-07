@@ -1,20 +1,22 @@
-STUDENT : Pierre Hérissé
-~~~~~~~~~~~~~~~~~~~~~~~~
+# BASES DE DONNÉES AVANCÉES
+
+## AUTHOR : Pierre Hérissé
+## ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-I - Installer MySQL 8 :
+## I - Installer MySQL 8 :
 	-> OK
 
-~~~
+## ~~~
 
-II - Installer la structure de base
+## II - Installer la structure de base
 	-> mysql -u pierre -p sakila < ./sakila-db/sakila-schema.sql
 	-> mysql -u pierre -p sakila < ./sakila-db/sakila-data.sql
 
 
-~~~
+## ~~~
 
-III - Créer des déclencheurs (Triggers)
+## III - Créer des déclencheurs (Triggers)
 
 
 - Sur la table film, ajouter 3 triggers :
@@ -29,9 +31,9 @@ Synchroniser votre schéma et tester que les triggers fonctionnent. Merci de me
 mettre des copies d’écran
 
 
-~~~
+## ~~~
 
-IV - Créer des vues (Views)
+## IV - Créer des vues (Views)
 
 Toujours sur le modèle WorkBench, créez des Vues :
 Vue film_list : elle doit présenter toutes les informations d’un film ainsi que sa
@@ -46,9 +48,9 @@ Les informations du manager Prénom + nom
 Le total des ventes de ce magasin
 
 
-~~~
+## ~~~
 
-V - Créer des procédures stockées (Routines)
+## V - Créer des procédures stockées (Routines)
 
 Toujours sur le modèle WorkBench, créons une Procédure Stockée
 Procédure film_in_stock : qui permet de déterminer si des exemplaires d’un film
@@ -65,9 +67,9 @@ Exemple :
 
 
 
-~~~
+## ~~~
 
-VI - Données géographiques et MySQL
+## VI - Données géographiques et MySQL
 
 MySQL propose un ensemble de types de données pour stocker des informations
 géographiques.
