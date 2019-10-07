@@ -10,9 +10,13 @@
 ## ~~~
 
 ## II - Installer la structure de base
-	- `mysql -u pierre -p sakila < ./sakila-db/sakila-schema.sql`
-	- `mysql -u pierre -p sakila < ./sakila-db/sakila-data.sql`
+```console
+mysql -u pierre -p sakila < ./sakila-db/sakila-schema.sql
+```
 
+```console
+mysql -u pierre -p sakila < ./sakila-db/sakila-data.sql
+```
 
 ## ~~~
 
