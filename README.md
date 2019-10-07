@@ -39,11 +39,14 @@ Toujours sur le modèle WorkBench, créez des Vues :
 Vue film_list : elle doit présenter toutes les informations d’un film ainsi que sa
 catégorie ainsi que la liste concaténée des acteurs
 
+![https://i.ibb.co/HF5qSB2/Screenshot-from-2019-10-07-15-28-54.png](https://i.ibb.co/HF5qSB2/Screenshot-from-2019-10-07-15-28-54.png)
 
 Vue sales_by_store : créer une vue qui présente pour chaque magasin :
 - Ses informations Ville + Pays
 - Les informations du manager Prénom + nom
 - Le total des ventes de ce magasin
+
+![https://i.ibb.co/z2Z6XbZ/Screenshot-from-2019-10-07-15-29-05.png](https://i.ibb.co/z2Z6XbZ/Screenshot-from-2019-10-07-15-29-05.png)
 
 
 ## V - Créer des procédures stockées (Routines)
@@ -58,9 +61,10 @@ p_film_count : Un paramètre OUT de sortie qui retourne le nombre d’exemplaire
 du film en stock dans le magasin
 • p_film_id :
 • p_store_id :
-•
+
 Exemple :
 
+![https://i.ibb.co/MN0TN7w/Screenshot-from-2019-10-07-15-29-12.png](https://i.ibb.co/MN0TN7w/Screenshot-from-2019-10-07-15-29-12.png)
 
 ## VI - Données géographiques et MySQL
 
