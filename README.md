@@ -1,7 +1,6 @@
 # BASES DE DONNÉES AVANCÉES
 
 ## AUTHOR : Pierre Hérissé
-## ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ## I - Installer MySQL 8 :
