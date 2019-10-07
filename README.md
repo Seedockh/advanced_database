@@ -7,7 +7,6 @@
 ## I - Installer MySQL 8 :
 	-> OK
 
-## ~~~
 
 ## II - Installer la structure de base
 ```console
@@ -18,7 +17,6 @@ mysql -u pierre -p sakila < ./sakila-db/sakila-schema.sql
 mysql -u pierre -p sakila < ./sakila-db/sakila-data.sql
 ```
 
-## ~~~
 
 ## III - Créer des déclencheurs (Triggers)
 
@@ -35,24 +33,18 @@ Synchroniser votre schéma et tester que les triggers fonctionnent. Merci de me
 mettre des copies d’écran
 
 
-## ~~~
-
 ## IV - Créer des vues (Views)
 
 Toujours sur le modèle WorkBench, créez des Vues :
 Vue film_list : elle doit présenter toutes les informations d’un film ainsi que sa
 catégorie ainsi que la liste concaténée des acteurs
-Vue
-•
-•
-•
-sales_by_store : créer une vue qui présente pour chaque magasin :
-Ses informations Ville + Pays
-Les informations du manager Prénom + nom
-Le total des ventes de ce magasin
 
 
-## ~~~
+Vue sales_by_store : créer une vue qui présente pour chaque magasin :
+- Ses informations Ville + Pays
+- Les informations du manager Prénom + nom
+- Le total des ventes de ce magasin
+
 
 ## V - Créer des procédures stockées (Routines)
 
@@ -69,9 +61,6 @@ du film en stock dans le magasin
 •
 Exemple :
 
-
-
-## ~~~
 
 ## VI - Données géographiques et MySQL
 
