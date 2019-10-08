@@ -148,8 +148,27 @@ GROUP BY film.film_id, category.name;
 	- Ses informations Ville + Pays
 	- Les informations du manager Prénom + nom
 	- Le total des ventes de ce magasin
+	
+```SQL
+CREATE VIEW show_store_details
+	(Store, Manager, TotalSales) 
+AS SELECT 
+	CONCAT(city.city, ', ', country.country),
+	CONCAT(staff.first_name, ' ', staff.last_name),
+	SUM(payment.amount)
+FROM store	
+LEFT JOIN address ON store.address_id = address.address_id
+LEFT JOIN city ON address.city_id = city.city_id
+LEFT JOIN country ON city.country_id = country.country_id
+LEFT JOIN staff ON store.store_id = staff.store_id
+LEFT JOIN payment ON staff.staff_id = payment.staff_id
+GROUP BY 
+	store.store_id, 
+	staff.first_name, 
+	staff.last_name;
+```
 
-!(https://i.ibb.co/HTTbntV/Screenshot-from-2019-10-08-12-13-27.png)[https://i.ibb.co/z2Z6XbZ/Screenshot-from-2019-10-07-15-29-05.png]
+![https://image.noelshack.com/fichiers/2019/41/2/1570540095-screenshot-from-2019-10-08-15-07-20.png](https://image.noelshack.com/fichiers/2019/41/2/1570540095-screenshot-from-2019-10-08-15-07-20.png)
 
 
 ## V - Créer des procédures stockées (Routines)
