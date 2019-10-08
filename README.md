@@ -114,6 +114,36 @@ catégorie ainsi que la liste concaténée des acteurs
 
 ![https://i.ibb.co/HF5qSB2/Screenshot-from-2019-10-07-15-28-54.png](https://i.ibb.co/HF5qSB2/Screenshot-from-2019-10-07-15-28-54.png)
 
+```SQL
+CREATE VIEW show_film_details
+	(FID,
+	Titre,
+	Description,
+	Catégorie,
+	Durée,
+	Prix,
+	Note,
+	Acteurs) 
+AS SELECT 
+	film.film_id,
+	title,
+	description,
+	category.name,
+	replacement_cost,
+	length,
+	rating,
+	GROUP_CONCAT(' ', actor.first_name, ' ', actor.last_name) AS actors
+FROM film	
+LEFT JOIN film_category ON film.film_id = film_category.film_id
+LEFT JOIN category ON film_category.category_id = category.category_id
+LEFT JOIN film_actor ON film.film_id = film_actor.film_id
+LEFT JOIN actor ON film_actor.actor_id = actor.actor_id
+GROUP BY film.film_id, category.name;
+```
+
+![https://image.noelshack.com/fichiers/2019/41/2/1570538691-screenshot-from-2019-10-08-14-44-36.png](https://image.noelshack.com/fichiers/2019/41/2/1570538691-screenshot-from-2019-10-08-14-44-36.png)
+
+
 - Vue sales_by_store : créer une vue qui présente pour chaque magasin :
 	- Ses informations Ville + Pays
 	- Les informations du manager Prénom + nom
