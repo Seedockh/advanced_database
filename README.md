@@ -268,5 +268,24 @@ Une fois que c’est OK, rendez-vous sur le site Open Data Paris (https://openda
 
 Adaptez le fichier CSV et importez-le en ligne de commandes dans votre base Velib.
 - Comment avez-vous formaté le fichier ?
+
+Chaque ligne du fichier CSV doit être de ce format :
+```csv
+4	128989986	Place Georges Guillaumin	29	POINT(48881949 2352339)
+```
+
 - Quelle commande avez-vous saisi pour importer ?
+
+```SQL
+ALTER TABLE sakila.stations MODIFY COLUMN station_number BIGINT NOT NULL;
+
+LOAD DATA INFILE '/var/lib/mysql-files/velib.csv'
+REPLACE
+INTO TABLE stations
+COLUMNS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"'
+IGNORE 1 ROWS
+(station_id, station_number, name, capacity, @coordinates)
+SET coordinates = ST_GeomFromText(@coordinates);
+```
+
 - Trouvez les 5 stations de Velib les plus proches de l’Arc de Triomphe. Quelle requête avez-vous saisi ?
