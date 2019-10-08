@@ -40,6 +40,41 @@ VALUES (NULL, 'FIRST FILM', 'Une description', '2019', 5);
 si la nouvelle description est différente de l'ancienne alors mettre à jour
 l'enregistrement correspondant dans la table film_text
 
+```SQL
+CREATE TRIGGER update_film_text_on_update_film
+   AFTER UPDATE ON film FOR EACH ROW
+   BEGIN
+      IF (NEW.title!=OLD.title) OR (NEW.description!=OLD.description)
+      THEN
+         UPDATE film_text
+         SET title=NEW.title,
+             description=NEW.description,
+             film_id=NEW.film_id
+	 WHERE film_id=OLD.film_id;
+      END IF;
+  END;
+  // This solution didn't work well because of the multiple delimiters
+  
+  // Here is a working alternative solution : 
+  DELIMITER $$
+  CREATE TRIGGER update_film_text
+  AFTER UPDATE
+  ON film FOR EACH ROW
+    BEGIN
+    IF OLD.title<>NEW.title THEN
+    UPDATE film_text SET title=NEW.title WHERE film_id=NEW.film_id;
+    END IF;
+		
+    IF OLD.description<>NEW.description THEN
+      UPDATE film_text SET description=NEW.description WHERE film_id=NEW.film_id;
+    END IF;
+    END$$
+  DELIMITER
+ 
+ 
+  UPDATE film SET title = 'UPDATED FIRST FILM' WHERE film_id = 5002;
+```
+
 ➔ après la suppression d'un film : supprimer l'enregistrement dans la table
 film_text
 
