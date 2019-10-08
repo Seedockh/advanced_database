@@ -5,6 +5,9 @@
 
 	-> OK
 
+
+
+
 ## II - Installer la structure de base
 
 ```console
@@ -14,6 +17,10 @@ mysql -u pierre -p sakila < ./sakila-db/sakila-schema.sql
 ```console
 mysql -u pierre -p sakila < ./sakila-db/sakila-data.sql
 ```
+
+
+
+
 
 ## III - Créer des déclencheurs (Triggers)
 
@@ -101,8 +108,7 @@ DELETE FROM film WHERE (film_id=5002);
 ![https://image.noelshack.com/fichiers/2019/41/2/1570536384-screenshot-from-2019-10-08-12-13-27.png](https://image.noelshack.com/fichiers/2019/41/2/1570536384-screenshot-from-2019-10-08-12-13-27.png)
 
 
-Synchroniser votre schéma et tester que les triggers fonctionnent. Merci de me
-mettre des copies d’écran
+
 
 
 ## IV - Créer des vues (Views)
@@ -169,6 +175,10 @@ GROUP BY
 ![https://image.noelshack.com/fichiers/2019/41/2/1570540095-screenshot-from-2019-10-08-15-07-20.png](https://image.noelshack.com/fichiers/2019/41/2/1570540095-screenshot-from-2019-10-08-15-07-20.png)
 
 
+
+
+
+
 ## V - Créer des procédures stockées (Routines)
 
 Procédure film_in_stock : qui permet de déterminer si des exemplaires d’un film
@@ -200,6 +210,10 @@ DELIMITER ;
 ```
 
 ![https://image.noelshack.com/fichiers/2019/41/2/1570541797-screenshot-from-2019-10-08-15-36-16.png](https://image.noelshack.com/fichiers/2019/41/2/1570541797-screenshot-from-2019-10-08-15-36-16.png)
+
+
+
+
 
 
 ## VI - Données géographiques et MySQL
@@ -287,6 +301,10 @@ LIMIT 5;
 ![https://image.noelshack.com/fichiers/2019/41/3/1570572659-screenshot-from-2019-10-09-00-09-51.png](https://image.noelshack.com/fichiers/2019/41/3/1570572659-screenshot-from-2019-10-09-00-09-51.png)
 
 
+
+
+
+
 ## VII - Transactions 
 
 ### Sur la base sakila :
@@ -372,6 +390,10 @@ Commitez. Certains films ont-ils été enregistrés ?
 ![]()
 
 
+
+
+
+
 ## VIII - Cluster MySQL
 
 Par groupe de 3 machines, montez un cluster MySQL.
@@ -381,11 +403,12 @@ L’objectif cible est d’obtenir la configuration suivante :
 ![https://image.noelshack.com/fichiers/2019/41/3/1570573603-cluster.png](https://image.noelshack.com/fichiers/2019/41/3/1570573603-cluster.png)
 
 Il nous faut :
-• 1 machine qui va servir de 
-o Serveur Mysql (mysqld et mysql)
-o Cluster manager (ndb_mgmd)
-• 2 machines qui vont servir de
-o Nœuds de données (ndbd)
+- 1 machine qui va servir de 
+	- Serveur Mysql (mysqld et mysql)
+	- Cluster manager (ndb_mgmd)
+- 2 machines qui vont servir de
+	- Nœuds de données (ndbd)
+
 Vous pouvez trouver des informations / tutoriels sur :
-• https://dev.mysql.com/doc/refman/8.0/en/mysql-innodb-clusteruserguide.html
-• https://www.digitalocean.com/community/tutorials/how-to-create-a-multinode-mysql-cluster-on-ubuntu-18-04
+- https://dev.mysql.com/doc/refman/8.0/en/mysql-innodb-cluster.userguide.html
+- https://www.digitalocean.com/community/tutorials/how-to-create-a-multi.node-mysql-cluster-on-ubuntu-18-04
