@@ -35,7 +35,7 @@ VALUES (NULL, 'FIRST FILM', 'Une description', '2019', 5);
 ```
 
 ![https://i.ibb.co/jD6BLx0/Screenshot-from-2019-10-08-08-32-26.png](https://i.ibb.co/jD6BLx0/Screenshot-from-2019-10-08-08-32-26.png)
-
+ 
 ➔ après la mise à jour d'un film : si le nouveau titre est différent de l'ancien OU
 si la nouvelle description est différente de l'ancienne alors mettre à jour
 l'enregistrement correspondant dans la table film_text
