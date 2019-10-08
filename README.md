@@ -289,3 +289,21 @@ SET coordinates = ST_GeomFromText(@coordinates);
 ```
 
 - Trouvez les 5 stations de Velib les plus proches de l’Arc de Triomphe. Quelle requête avez-vous saisi ?
+
+```SQL
+DELIMITER $$
+
+CREATE PROCEDURE distance_from_adtriomphe (
+	IN p_point_to_reach INT,
+	OUT p_distance DECIMAL
+)
+BEGIN
+	SET @arcDeTriomphe = ST_GeomFromText('POINT(48.8738 2.295)');
+	SET @pointToReach = ST_GeomFromText(p_point_to_reach);
+
+	SELECT ST_Distance_Sphere(@arcDeTriomphe, @pointToReach) 
+	INTO p_distance;
+END; $$
+
+DELIMITER ;
+```
