@@ -28,6 +28,7 @@ FOR EACH ROW
 	INSERT INTO film_text (film_id, title, description)
 	VALUES (NEW.film_id, NEW.title, NEW.description);
 	
+	
 INSERT INTO film (film_id, title, description, release_year, language_id)
 VALUES (NULL, 'FIRST FILM', 'Une description', '2019', 5);
 ```
@@ -56,10 +57,12 @@ CREATE TRIGGER update_film_text_on_update_film
   
   /* Here is a working alternative solution : */
   DELIMITER $$
+  
   CREATE TRIGGER update_film_text
   AFTER UPDATE
   ON film FOR EACH ROW
     BEGIN
+  
     IF OLD.title<>NEW.title THEN
     UPDATE film_text SET title=NEW.title WHERE film_id=NEW.film_id;
     END IF;
@@ -67,9 +70,10 @@ CREATE TRIGGER update_film_text_on_update_film
     IF OLD.description<>NEW.description THEN
       UPDATE film_text SET description=NEW.description WHERE film_id=NEW.film_id;
     END IF;
+    
     END$$
+  
   DELIMITER
- 
  
   UPDATE film SET title = 'UPDATED FIRST FILM' WHERE film_id = 5002;
 ```
