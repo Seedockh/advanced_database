@@ -271,7 +271,7 @@ Adaptez le fichier CSV et importez-le en ligne de commandes dans votre base Veli
 
 Chaque ligne du fichier CSV doit être de ce format :
 ```csv
-4	128989986	Place Georges Guillaumin	29	POINT(48881949 2352339)
+4	128989986	Place Georges Guillaumin	29	POINT(48.881949 2.352339)
 ```
 
 Pour ce faire, les colonnes latitude et longitude étant dans un mauvais format, il a fallu effectuer des opérations sur la colonne des coordonnées, sous la forme `latitude,longitude`, ce qui donne :
