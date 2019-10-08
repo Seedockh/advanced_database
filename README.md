@@ -251,9 +251,8 @@ Comment faut-il saisir les coordonnées ?
 
 ```SQL
 INSERT INTO stations 
-	(station_id, station_number, name, capacity, coordinates)
+	(station_number, name, capacity, coordinates)
 	VALUES (
-		1, 
 		10, 
 		'First Station', 
 		10, 
