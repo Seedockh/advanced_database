@@ -77,6 +77,7 @@ CREATE TRIGGER update_film_text_on_update_film
 
 ![https://i.ibb.co/7bpwLVT/Screenshot-from-2019-10-08-10-48-55.png](https://i.ibb.co/7bpwLVT/Screenshot-from-2019-10-08-10-48-55.png)
 
+
 ➔ après la suppression d'un film : supprimer l'enregistrement dans la table
 film_text
 
