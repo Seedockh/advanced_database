@@ -112,7 +112,7 @@ catégorie ainsi que la liste concaténée des acteurs
 	- Les informations du manager Prénom + nom
 	- Le total des ventes de ce magasin
 
-![https://i.ibb.co/z2Z6XbZ/Screenshot-from-2019-10-07-15-29-05.png](https://i.ibb.co/z2Z6XbZ/Screenshot-from-2019-10-07-15-29-05.png)
+!(https://i.ibb.co/HTTbntV/Screenshot-from-2019-10-08-12-13-27.png)[https://i.ibb.co/z2Z6XbZ/Screenshot-from-2019-10-07-15-29-05.png]
 
 
 ## V - Créer des procédures stockées (Routines)
