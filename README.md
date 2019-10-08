@@ -55,7 +55,7 @@ CREATE TRIGGER update_film_text_on_update_film
   END;
   // This solution didn't work well because of the multiple delimiters
   
-  // Here is a working alternative solution : 
+  /* Here is a working alternative solution : */
   DELIMITER $$
   CREATE TRIGGER update_film_text
   AFTER UPDATE
