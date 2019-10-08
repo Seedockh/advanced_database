@@ -80,6 +80,21 @@ CREATE TRIGGER update_film_text_on_update_film
 ➔ après la suppression d'un film : supprimer l'enregistrement dans la table
 film_text
 
+```SQL
+DELIMITER $$
+CREATE TRIGGER delete_film_text_on_delete_film 
+AFTER DELETE ON film
+FOR EACH ROW
+BEGIN
+	DELETE FROM film_text
+	WHERE (film_id = OLD.film_id);
+END; $$
+
+DELETE FROM film WHERE (film_id=5002);
+```
+
+![https://i.ibb.co/vQHXpx1/Screenshot-from-2019-10-08-12-04-04.png](https://i.ibb.co/vQHXpx1/Screenshot-from-2019-10-08-12-04-04.png)
+
 Synchroniser votre schéma et tester que les triggers fonctionnent. Merci de me
 mettre des copies d’écran
 
