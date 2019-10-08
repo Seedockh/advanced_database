@@ -249,6 +249,20 @@ https://dev.mysql.com/doc/refman/8.0/en/spatial-types.html
 
 Comment faut-il saisir les coordonnées ?
 
+```SQL
+INSERT INTO stations 
+	(station_id, station_number, name, capacity, coordinates)
+	VALUES (
+		1, 
+		10, 
+		'First Station', 
+		10, 
+		ST_GeomFromText('POINT(15 15)')
+	);
+```
+
+![https://image.noelshack.com/fichiers/2019/41/2/1570543312-screenshot-from-2019-10-08-16-01-32.png](https://image.noelshack.com/fichiers/2019/41/2/1570543312-screenshot-from-2019-10-08-16-01-32.png)
+
 Voir la doc : https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-geomfromtext
 
 Une fois que c’est OK, rendez-vous sur le site Open Data Paris (https://opendata.paris.fr/ ), trouvez le jeu de données des Velib et téléchargez-le au format CSV.
