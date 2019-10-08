@@ -279,6 +279,8 @@ Pour ce faire, les colonnes latitude et longitude étant dans un mauvais format,
 =CONCAT("POINT(";LEFT(F2;FIND(",";F2)-1);" ";RIGHT(F2;LEN(F2)-FIND(",";F2));")")
 ```
 
+![https://image.noelshack.com/fichiers/2019/41/3/1570572780-screenshot-from-2019-10-09-00-12-26.png](https://image.noelshack.com/fichiers/2019/41/3/1570572780-screenshot-from-2019-10-09-00-12-26.png)
+
 - Quelle commande avez-vous saisi pour importer ?
 
 ```SQL
