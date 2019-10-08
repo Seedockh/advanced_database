@@ -228,6 +228,21 @@ Créez le modèle Workbench d’une BDD Vélib avec une tables ‘stations’. C
 station aura un id (bref un id), un numéro de station (un entier) obligatoire, un nom
 (une chaine de caractères) obligatoire, une capacité d’accueil (un petit entier) et des
 coordonnées (notre fameux point).
+
+```SQL
+CREATE TABLE stations
+(
+	station_id INT PRIMARY KEY NOT NULL,
+	station_number INT NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	capacity SMALLINT,
+	coordinates POINT
+);
+```
+
+![https://image.noelshack.com/fichiers/2019/41/2/1570542620-screenshot-from-2019-10-08-15-50-06.png](https://image.noelshack.com/fichiers/2019/41/2/1570542620-screenshot-from-2019-10-08-15-50-06.png)
+
+
 Une fois synchronisé le modèle, tentez d’ajouter un enregistrement factice. En vous
 aidant de la documentation
 https://dev.mysql.com/doc/refman/8.0/en/spatial-types.html
