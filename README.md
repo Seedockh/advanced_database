@@ -293,27 +293,18 @@ IGNORE 1 ROWS
 SET coordinates = ST_GeomFromText(@coordinates);
 ```
 
+![https://image.noelshack.com/fichiers/2019/41/3/1570572637-screenshot-from-2019-10-09-00-09-35.png](https://image.noelshack.com/fichiers/2019/41/3/1570572637-screenshot-from-2019-10-09-00-09-35.png)
+
 - Trouvez les 5 stations de Velib les plus proches de l’Arc de Triomphe. Quelle requête avez-vous saisi ?
 
 ```SQL
-DROP FUNCTION IF EXISTS get_distance_from_adtriomphe;
-
-DELIMITER $$
-
-CREATE FUNCTION get_distance_from_adtriomphe(
-	point_to_reach VARCHAR(100)
-)
-RETURNS DOUBLE
-DETERMINISTIC
-BEGIN
-   SET @arcDeTriomphe = 'POINT(48.8738 2.295)';
-   SET @pointToReach = point_to_reach;
-
-   RETURN ST_Distance_Sphere(
-      ST_GeomFromText(@arcDeTriomphe), 
-      ST_GeomFromText(@pointToReach)
-   );
-END $$
-
-DELIMITER ;
+SELECT name AS Station, capacity AS Capacite, ST_Distance_Sphere(
+      ST_GeomFromText('POINT(48.8738 2.295)'), 
+      coordinates
+   ) AS distance_in_meter
+FROM stations
+ORDER BY distance_in_meter
+LIMIT 5;
 ```
+
+![https://image.noelshack.com/fichiers/2019/41/3/1570572659-screenshot-from-2019-10-09-00-09-51.png](https://image.noelshack.com/fichiers/2019/41/3/1570572659-screenshot-from-2019-10-09-00-09-51.png)
