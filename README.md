@@ -53,7 +53,7 @@ CREATE TRIGGER update_film_text_on_update_film
 	 WHERE film_id=OLD.film_id;
       END IF;
   END;
-  // This solution didn't work well because of the multiple delimiters
+  /* This solution didn't work well because of the multiple delimiters */
   
   /* Here is a working alternative solution : */
   DELIMITER $$
