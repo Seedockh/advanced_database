@@ -149,6 +149,8 @@ GROUP BY film.film_id, category.name;
 	- Les informations du manager Prénom + nom
 	- Le total des ventes de ce magasin
 	
+![https://image.noelshack.com/fichiers/2019/41/2/1570540196-view2.png](https://image.noelshack.com/fichiers/2019/41/2/1570540196-view2.png)	
+	
 ```SQL
 CREATE VIEW show_store_details
 	(Store, Manager, TotalSales) 
