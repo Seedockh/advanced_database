@@ -112,8 +112,6 @@ Toujours sur le modèle WorkBench, créez des Vues :
 - Vue film_list : elle doit présenter toutes les informations d’un film ainsi que sa
 catégorie ainsi que la liste concaténée des acteurs
 
-![https://i.ibb.co/HF5qSB2/Screenshot-from-2019-10-07-15-28-54.png](https://i.ibb.co/HF5qSB2/Screenshot-from-2019-10-07-15-28-54.png)
-
 ```SQL
 CREATE VIEW show_film_details
 	(FID,
@@ -149,8 +147,6 @@ GROUP BY film.film_id, category.name;
 	- Les informations du manager Prénom + nom
 	- Le total des ventes de ce magasin
 	
-![https://image.noelshack.com/fichiers/2019/41/2/1570540196-view2.png](https://image.noelshack.com/fichiers/2019/41/2/1570540196-view2.png)	
-	
 ```SQL
 CREATE VIEW show_store_details
 	(Store, Manager, TotalSales) 
@@ -175,19 +171,8 @@ GROUP BY
 
 ## V - Créer des procédures stockées (Routines)
 
-Toujours sur le modèle WorkBench, créons une Procédure Stockée
 Procédure film_in_stock : qui permet de déterminer si des exemplaires d’un film
-donné sont disponibles dans un magasin donné.
-Paramètres :
-- p_film_id : L’ID du film à vérifier
-- p_store_id : L’ID du magasin pour lequel on souhaite vérifier
-- p_film_count : Un paramètre OUT de sortie qui retourne le nombre d’exemplaires 
-du film en stock dans le magasin
-
-Exemple :
-
-![https://i.ibb.co/MN0TN7w/Screenshot-from-2019-10-07-15-29-12.png](https://i.ibb.co/MN0TN7w/Screenshot-from-2019-10-07-15-29-12.png)
-
+donné sont disponibles dans un magasin donné :
 
 ```SQL
 DELIMITER $$
@@ -214,16 +199,11 @@ END; $$
 DELIMITER ;
 ```
 
-
 ![https://image.noelshack.com/fichiers/2019/41/2/1570541797-screenshot-from-2019-10-08-15-36-16.png](https://image.noelshack.com/fichiers/2019/41/2/1570541797-screenshot-from-2019-10-08-15-36-16.png)
 
 
 ## VI - Données géographiques et MySQL
 
-MySQL propose un ensemble de types de données pour stocker des informations
-géographiques.
-
-Le but est d’appréhender son type de base : le point.
 Créez le modèle Workbench d’une BDD Vélib avec une tables ‘stations’. Chaque
 station aura un id (bref un id), un numéro de station (un entier) obligatoire, un nom
 (une chaine de caractères) obligatoire, une capacité d’accueil (un petit entier) et des
@@ -243,9 +223,7 @@ CREATE TABLE stations
 ![https://image.noelshack.com/fichiers/2019/41/2/1570542620-screenshot-from-2019-10-08-15-50-06.png](https://image.noelshack.com/fichiers/2019/41/2/1570542620-screenshot-from-2019-10-08-15-50-06.png)
 
 
-Une fois synchronisé le modèle, tentez d’ajouter un enregistrement factice. En vous
-aidant de la documentation
-https://dev.mysql.com/doc/refman/8.0/en/spatial-types.html
+Une fois synchronisé le modèle, tentez d’ajouter un enregistrement factice.
 
 Comment faut-il saisir les coordonnées ?
 
@@ -262,19 +240,16 @@ INSERT INTO stations
 
 ![https://image.noelshack.com/fichiers/2019/41/2/1570543312-screenshot-from-2019-10-08-16-01-32.png](https://image.noelshack.com/fichiers/2019/41/2/1570543312-screenshot-from-2019-10-08-16-01-32.png)
 
-Voir la doc : https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-geomfromtext
-
-Une fois que c’est OK, rendez-vous sur le site Open Data Paris (https://opendata.paris.fr/ ), trouvez le jeu de données des Velib et téléchargez-le au format CSV.
 
 Adaptez le fichier CSV et importez-le en ligne de commandes dans votre base Velib.
 - Comment avez-vous formaté le fichier ?
 
-Chaque ligne du fichier CSV doit être de ce format :
+> Chaque ligne du fichier CSV doit être de ce format :
 ```csv
 4	128989986	Place Georges Guillaumin	29	POINT(48.881949 2.352339)
 ```
 
-Pour ce faire, les colonnes latitude et longitude étant dans un mauvais format, il a fallu effectuer des opérations sur la colonne des coordonnées, sous la forme `latitude,longitude`, ce qui donne :
+> Pour ce faire, les colonnes latitude et longitude étant dans un mauvais format, il a fallu effectuer des opérations sur la colonne des coordonnées, sous la forme `latitude,longitude`, ce qui donne :
 ```csv
 =CONCAT("POINT(";LEFT(F2;FIND(",";F2)-1);" ";RIGHT(F2;LEN(F2)-FIND(",";F2));")")
 ```
