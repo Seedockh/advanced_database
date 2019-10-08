@@ -86,6 +86,7 @@ film_text
 
 ```SQL
 DELIMITER $$
+
 CREATE TRIGGER delete_film_text_on_delete_film 
 AFTER DELETE ON film
 FOR EACH ROW
@@ -93,6 +94,7 @@ BEGIN
 	DELETE FROM film_text
 	WHERE (film_id = OLD.film_id);
 END; $$
+
 DELETE FROM film WHERE (film_id=5002);
 ```
 
