@@ -24,8 +24,17 @@ mysql -u pierre -p sakila < ./sakila-db/sakila-data.sql
 
 ➔ après l'insertion d'un film : ajouter un enregistrement dans la table film_text
 ```SQL
-CREATE TRIGGER add_film_text_on_new_film AFTER INSERT ON film FOR EACH ROW BEGIN END
+CREATE TRIGGER add_film_text_on_new_film 
+AFTER INSERT ON film 
+FOR EACH ROW
+	INSERT INTO film_text (film_id, title, description)
+	VALUES (NEW.film_id, NEW.title, NEW.description);
+	
+INSERT INTO film (film_id, title, description, release_year, language_id)
+VALUES (NULL, 'FIRST FILM', 'Une description', '2019', 5);
 ```
+
+![https://i.ibb.co/jD6BLx0/Screenshot-from-2019-10-08-08-32-26.png](https://i.ibb.co/jD6BLx0/Screenshot-from-2019-10-08-08-32-26.png)
 
 ➔ après la mise à jour d'un film : si le nouveau titre est différent de l'ancien OU
 si la nouvelle description est différente de l'ancienne alors mettre à jour
