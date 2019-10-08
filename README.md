@@ -189,6 +189,35 @@ Exemple :
 ![https://i.ibb.co/MN0TN7w/Screenshot-from-2019-10-07-15-29-12.png](https://i.ibb.co/MN0TN7w/Screenshot-from-2019-10-07-15-29-12.png)
 
 
+```SQL
+DELIMITER $$
+
+CREATE PROCEDURE film_in_stock (
+	IN p_film_id INT,
+	IN p_store_id INT,
+	OUT p_film_count INT
+)
+BEGIN
+	SELECT inventory_id
+	FROM inventory 
+	WHERE 
+		film_id = p_film_id 
+		AND store_id = p_store_id;
+	
+	SELECT COUNT(inventory_id) INTO p_film_count
+	FROM inventory 
+	WHERE 
+		film_id = p_film_id 
+		AND store_id = p_store_id;
+END; $$
+
+DELIMITER ;
+```
+
+
+![https://image.noelshack.com/fichiers/2019/41/2/1570541797-screenshot-from-2019-10-08-15-36-16.png](https://image.noelshack.com/fichiers/2019/41/2/1570541797-screenshot-from-2019-10-08-15-36-16.png)
+
+
 ## VI - Données géographiques et MySQL
 
 MySQL propose un ensemble de types de données pour stocker des informations
