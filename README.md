@@ -294,7 +294,7 @@ SET coordinates = ST_GeomFromText(@coordinates);
 DELIMITER $$
 
 CREATE PROCEDURE distance_from_adtriomphe (
-	IN p_point_to_reach INT,
+	IN p_point_to_reach POINT,
 	OUT p_distance DECIMAL
 )
 BEGIN
