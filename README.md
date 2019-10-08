@@ -285,3 +285,107 @@ LIMIT 5;
 ```
 
 ![https://image.noelshack.com/fichiers/2019/41/3/1570572659-screenshot-from-2019-10-09-00-09-51.png](https://image.noelshack.com/fichiers/2019/41/3/1570572659-screenshot-from-2019-10-09-00-09-51.png)
+
+
+## VII - Transactions 
+
+### Sur la base sakila :
+Désactiver l’autocommit.
+
+```sql
+
+```
+
+Insérer 2 films en une requête.
+
+```sql
+
+```
+
+Ouvrez un autre client mysql et vérifiez si les films ont été ajoutés. Oui ou non ? Et 
+dans la table film_text (où vous avez fait un trigger) ?
+
+![]()
+
+![]()
+
+Faites un commit.
+
+```sql
+
+```
+
+Vérifiez si les films ont été ajoutés. Oui ou non ? Et dans la table film_text ?
+
+![]()
+
+![]()
+
+Insérer un nouveau film.
+
+```sql
+
+```
+
+Fermez votre client mysql.
+Relancez un client. L’enregistrement a-t-il été commité ? Pensez à re-désactiver
+l’autocommit !
+
+![]()
+
+Insérez un film. Faites un ROLLBACK. Insérez un film. Faites un COMMIT. Combien de 
+films ont été ajoutés ?
+
+```sql
+
+```
+
+![]()
+
+Réactiver l’autocommit.
+Commencez un bloc d’instructions par START TRANSACTION, insérez 2 films et faites 
+un ROLLBACK. Les films ont-ils été enregistrés ?
+
+```sql
+
+```
+
+![]()
+
+Commencez un bloc d’instructions par START TRANSACTION, insérez 2 films et faites 
+un COMMIT. Les films ont-ils été enregistrés ?
+
+```sql
+
+```
+
+![]()
+
+Commencez un bloc d’instructions par START TRANSACTION, insérez 1 film et créez 
+un jalon. Insérez un nouveau film et faites un ROLLBACK au précédent jalon.
+Commitez. Certains films ont-ils été enregistrés ?
+
+```sql
+
+```
+
+![]()
+
+
+## VIII - Cluster MySQL
+
+Par groupe de 3 machines, montez un cluster MySQL.
+
+L’objectif cible est d’obtenir la configuration suivante :
+
+![https://image.noelshack.com/fichiers/2019/41/3/1570573603-cluster.png](https://image.noelshack.com/fichiers/2019/41/3/1570573603-cluster.png)
+
+Il nous faut :
+• 1 machine qui va servir de 
+o Serveur Mysql (mysqld et mysql)
+o Cluster manager (ndb_mgmd)
+• 2 machines qui vont servir de
+o Nœuds de données (ndbd)
+Vous pouvez trouver des informations / tutoriels sur :
+• https://dev.mysql.com/doc/refman/8.0/en/mysql-innodb-clusteruserguide.html
+• https://www.digitalocean.com/community/tutorials/how-to-create-a-multinode-mysql-cluster-on-ubuntu-18-04
