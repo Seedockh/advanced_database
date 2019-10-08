@@ -274,6 +274,11 @@ Chaque ligne du fichier CSV doit être de ce format :
 4	128989986	Place Georges Guillaumin	29	POINT(48881949 2352339)
 ```
 
+Pour ce faire, les colonnes latitude et longitude étant dans un mauvais format, il a fallu effectuer des opérations sur la colonne des coordonnées, sous la forme `latitude,longitude`, ce qui donne :
+```csv
+=CONCAT("POINT(";LEFT(F2;FIND(",";F2)-1);" ";RIGHT(F2;LEN(F2)-FIND(",";F2));")")
+```
+
 - Quelle commande avez-vous saisi pour importer ?
 
 ```SQL
