@@ -94,7 +94,7 @@ END; $$
 DELETE FROM film WHERE (film_id=5002);
 ```
 
-[https://i.ibb.co/HTTbntV/Screenshot-from-2019-10-08-12-13-27.png](https://i.ibb.co/HTTbntV/Screenshot-from-2019-10-08-12-13-27.png)
+![https://i.ibb.co/HTTbntV/Screenshot-from-2019-10-08-12-13-27.png](https://i.ibb.co/HTTbntV/Screenshot-from-2019-10-08-12-13-27.png)
 
 Synchroniser votre schéma et tester que les triggers fonctionnent. Merci de me
 mettre des copies d’écran
