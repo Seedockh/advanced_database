@@ -311,84 +311,136 @@ LIMIT 5;
 Désactiver l’autocommit.
 
 ```sql
-
+SET autocommit = 0;
 ```
 
 Insérer 2 films en une requête.
 
 ```sql
-
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 1', 'Description 1', 5),
+	('Film commit 2', 'Description 2', 5);
 ```
 
 Ouvrez un autre client mysql et vérifiez si les films ont été ajoutés. Oui ou non ? Et 
 dans la table film_text (où vous avez fait un trigger) ?
 
-![]()
+> Non, les films n'ont pas été ajoutés, ni dans `film`, ni dans `film_text`.
 
-![]()
+![https://image.noelshack.com/fichiers/2019/41/3/1570601748-screenshot-from-2019-10-09-08-15-28.png](https://image.noelshack.com/fichiers/2019/41/3/1570601748-screenshot-from-2019-10-09-08-15-28.png)
+
 
 Faites un commit.
 
 ```sql
-
+COMMIT;
 ```
 
 Vérifiez si les films ont été ajoutés. Oui ou non ? Et dans la table film_text ?
 
-![]()
+![https://image.noelshack.com/fichiers/2019/41/3/1570601937-screenshot-from-2019-10-09-08-18-42.png](https://image.noelshack.com/fichiers/2019/41/3/1570601937-screenshot-from-2019-10-09-08-18-42.png)
 
-![]()
+![https://image.noelshack.com/fichiers/2019/41/3/1570601972-screenshot-from-2019-10-09-08-19-19.png](https://image.noelshack.com/fichiers/2019/41/3/1570601972-screenshot-from-2019-10-09-08-19-19.png)
 
 Insérer un nouveau film.
 
 ```sql
-
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 3', 'Description 3', 5);
 ```
 
 Fermez votre client mysql.
 Relancez un client. L’enregistrement a-t-il été commité ? Pensez à re-désactiver
 l’autocommit !
 
-![]()
+> Non, l'enregistrement n'a pas été commité.
+
+![https://image.noelshack.com/fichiers/2019/41/3/1570602115-screenshot-from-2019-10-09-08-21-18.png](https://image.noelshack.com/fichiers/2019/41/3/1570602115-screenshot-from-2019-10-09-08-21-18.png)
+
+```sql
+SET autocommit=1;
+```
 
 Insérez un film. Faites un ROLLBACK. Insérez un film. Faites un COMMIT. Combien de 
 films ont été ajoutés ?
 
 ```sql
+USE sakila;
 
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 4', 'Description 4', 5);
+ROLLBACK;
+
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 5', 'Description 5', 5);
+COMMIT;
 ```
 
-![]()
+> Seul le 2eme film a été ajouté.
+
+![https://image.noelshack.com/fichiers/2019/41/3/1570602685-screenshot-from-2019-10-09-08-30-40.png](https://image.noelshack.com/fichiers/2019/41/3/1570602685-screenshot-from-2019-10-09-08-30-40.png)
+
 
 Réactiver l’autocommit.
 Commencez un bloc d’instructions par START TRANSACTION, insérez 2 films et faites 
 un ROLLBACK. Les films ont-ils été enregistrés ?
 
 ```sql
+SET autocommit=1;
 
+START TRANSACTION;
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 6', 'Description 6', 5);
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 7', 'Description 7', 5);	
+	
+ROLLBACK;
 ```
 
-![]()
+> Non, les films n'ont pas étés enregistrés.
+
+![https://image.noelshack.com/fichiers/2019/41/3/1570602925-screenshot-from-2019-10-09-08-34-49.png](https://image.noelshack.com/fichiers/2019/41/3/1570602925-screenshot-from-2019-10-09-08-34-49.png)
 
 Commencez un bloc d’instructions par START TRANSACTION, insérez 2 films et faites 
 un COMMIT. Les films ont-ils été enregistrés ?
 
 ```sql
-
+START TRANSACTION;
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 6', 'Description 6', 5);
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 7', 'Description 7', 5);	
+	
+COMMIT;
 ```
 
-![]()
+> Oui, les films ont bien été enregistrés.
+
+![https://image.noelshack.com/fichiers/2019/41/3/1570603017-screenshot-from-2019-10-09-08-36-39.png](https://image.noelshack.com/fichiers/2019/41/3/1570603017-screenshot-from-2019-10-09-08-36-39.png)
+
 
 Commencez un bloc d’instructions par START TRANSACTION, insérez 1 film et créez 
 un jalon. Insérez un nouveau film et faites un ROLLBACK au précédent jalon.
 Commitez. Certains films ont-ils été enregistrés ?
 
 ```sql
+START TRANSACTION;
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 8', 'Description 8', 5);
 
+SAVEPOINT FilmEightInsert;
+
+INSERT INTO film (title, description, language_id) VALUES
+	('Film commit 9', 'Description 9', 5);
+
+ROLLBACK TO FilmEightInsert;
+
+COMMIT;
 ```
 
-![]()
+> Oui, seul le film 8 a été enregistré.
 
+![https://image.noelshack.com/fichiers/2019/41/3/1570603210-screenshot-from-2019-10-09-08-39-38.png](https://image.noelshack.com/fichiers/2019/41/3/1570603210-screenshot-from-2019-10-09-08-39-38.png)
 
 
 
