@@ -358,7 +358,7 @@ l’autocommit !
 ![https://image.noelshack.com/fichiers/2019/41/3/1570602115-screenshot-from-2019-10-09-08-21-18.png](https://image.noelshack.com/fichiers/2019/41/3/1570602115-screenshot-from-2019-10-09-08-21-18.png)
 
 ```sql
-SET autocommit=1;
+SET autocommit=0;
 ```
 
 Insérez un film. Faites un ROLLBACK. Insérez un film. Faites un COMMIT. Combien de 
