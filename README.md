@@ -1,6 +1,8 @@
 # BASES DE DONNÉES AVANCÉES
 ## AUTHOR : Pierre Hérissé
 
+# TP1
+
 ## I - Installer MySQL 8 :
 
 	-> OK
@@ -305,6 +307,8 @@ LIMIT 5;
 
 
 
+# TP2
+
 ## VII - Transactions 
 
 ### Sur la base sakila :
@@ -464,3 +468,9 @@ Il nous faut :
 Vous pouvez trouver des informations / tutoriels sur :
 - https://dev.mysql.com/doc/refman/8.0/en/mysql-innodb-cluster.userguide.html
 - https://www.digitalocean.com/community/tutorials/how-to-create-a-multi.node-mysql-cluster-on-ubuntu-18-04
+
+
+# TP3 & TP4
+
+Go to this PDF :
+[https://github.com/Seedockh/advanced_database/blob/master/tp3/Pierre%20H%C3%A9riss%C3%A9%20-%20TP3.pdf](https://github.com/Seedockh/advanced_database/blob/master/tp3/Pierre%20H%C3%A9riss%C3%A9%20-%20TP3.pdf)
